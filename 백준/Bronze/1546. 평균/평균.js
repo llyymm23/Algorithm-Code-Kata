@@ -2,13 +2,12 @@ const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
 const n = Number(input[0]);
-const arr = input[1].split(' ').map(Number);
-const max = Math.max(...arr);
+const scores = input[1].split(' ').map(Number);
 
-const score = arr.map(x => x / max * 100);
+const m = Math.max(...scores);
+const newScores = scores.map((score) => (score / m) * 100);
 
-let sum = 0;
+const sum = newScores.reduce((x, score) => x + score, 0);
+const avg = sum / n;
 
-score.forEach(x => { sum += x; })
-
-console.log(sum / n);
+console.log(avg.toFixed(2));
