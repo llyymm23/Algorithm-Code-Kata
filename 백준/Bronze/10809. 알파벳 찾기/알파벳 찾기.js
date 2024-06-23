@@ -1,9 +1,9 @@
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split('');
+const input = fs.readFileSync('/dev/stdin').toString();
 
 let arr = [];
 
-for (let i = 97; i <= 122; i++) {
+for (let i = 'a'.charCodeAt(); i <= 'z'.charCodeAt(); i++) {
     arr.push(input.indexOf(String.fromCharCode(i)));
 }
 
