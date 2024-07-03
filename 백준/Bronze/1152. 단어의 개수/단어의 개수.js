@@ -1,13 +1,8 @@
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString();
+const fs = require("fs");
+const input = fs.readFileSync('dev/stdin').toString().trim();
 
-let wordsArr = input.trim().split(' '); 
-let countOfWords = 0;
-
-for (let i = 0; i < wordsArr.length; i++) {
-  if (wordsArr[i] !== '') {
-    countOfWords++;
-  }
+if (input.length == 0) {
+    console.log(0);
+} else {
+    console.log(input.split(' ').length);
 }
-
-console.log(countOfWords);
