@@ -1,24 +1,15 @@
-let fs = require("fs");
-let input = fs.readFileSync("/dev/stdin").toString().trim();
-let phone = {
-	2: "ABC",
-	3: "DEF",
-	4: "GHI",
-	5: "JKL",
-	6: "MNO",
-	7: "PQRS",
-	8: "TUV",
-	9: "WXYZ",
-};
-let result = 0;
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('');
 
-for (let i = 0; i < input.length; i++) {
-	for (let j = 2; j <= 9; j++) {
-		if (phone[j].includes(input[i])) {
-			result += j + 1;
-			break;
-		}
-	}
+const dial = ['', 'ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ'];
+
+let answer = 0;
+
+for (const letter of input) {
+  dial.forEach((item, idx) => {
+    if (item.includes(letter)) {
+      answer += idx + 2;
+    }
+  });
 }
 
-console.log(result);
+console.log(answer);
