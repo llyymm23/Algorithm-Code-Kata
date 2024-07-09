@@ -1,4 +1,6 @@
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString();
+var fs = require('fs');
+var input = fs.readFileSync('/dev/stdin')
 
-console.log(Number(input)-543);
+if(1000<=input && input<=3000 ) {
+    console.log(input-543);
+}
